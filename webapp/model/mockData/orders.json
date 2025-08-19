@@ -1,0 +1,88 @@
+{
+  "orders": [
+    {
+      "orderId": "050",
+      "product": "Lamp",
+      "status": "In Process",
+      "amount": "€ 45,00"
+    },
+    {
+      "orderId": "081",
+      "product": "Phone",
+      "status": "Shipped",
+      "amount": "€ 200,00"
+    },
+    {
+      "orderId": "109",
+      "product": "Tablet",
+      "status": "Shipped",
+      "amount": "€ 300,00"
+    },
+    {
+      "orderId": "123",
+      "product": "Chair",
+      "status": "In Process",
+      "amount": "€ 70,00"
+    },
+    {
+      "orderId": "124",
+      "product": "Desk",
+      "status": "Shipped",
+      "amount": "€ 500,00"
+    },
+    {
+      "orderId": "125",
+      "product": "Keyboard",
+      "status": "In Process",
+      "amount": "€ 100,00"
+    },
+    {
+      "orderId": "126",
+      "product": "Mouse",
+      "status": "Shipped",
+      "amount": "€ 50,00"
+    },
+    {
+      "orderId": "127",
+      "product": "Monitor",
+      "status": "In Process",
+      "amount": "€ 350,00"
+    },
+    {
+      "orderId": "128",
+      "product": "Printer",
+      "status": "Shipped",
+      "amount": "€ 250,00"
+    },
+    {
+      "orderId": "129",
+      "product": "Scanner",
+      "status": "In Process",
+      "amount": "€ 150,00"
+    },
+    {
+      "orderId": "130",
+      "product": "Webcam",
+      "status": "Shipped",
+      "amount": "€ 75,00"
+    },
+    {
+      "orderId": "131",
+      "product": "Headphones",
+      "status": "In Process",
+      "amount": "€ 60,00"
+    },
+    {
+      "orderId": "132",
+      "product": "Microphone",
+      "status": "Shipped",
+      "amount": "€ 80,00"
+    },
+    {
+      "orderId": "133",
+      "product": "Software",
+      "status": "In Process",
+      "amount": "€ 200,00"
+    }
+  ]
+}

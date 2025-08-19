@@ -1,34 +1,62 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<mvc:View xmlns:mvc="sap.ui.core.mvc"
-  xmlns="sap.m"
-  xmlns:layout="sap.ui.layout"
-  xmlns:form="sap.ui.layout.form"
-  xmlns:core="sap.ui.core"
-  xmlns:richtexteditor="sap.ui.richtexteditor"
-  xmlns:viz="sap.viz.ui5"
-  controllerName="preview.app.controller.EmployeeOnboardingView"
-  displayBlock="true">
-  <Page title="EmployeeOnboardingView" enableScrolling="true">
-    <content>
-      <Title id="title_8bi6se8w" text="Employee Onboarding Form"/>
-      <form:SimpleForm id="personalInfoForm">
-        <form:content>
-          <!-- Empty SimpleForm content -->
-        </form:content>
-      </form:SimpleForm>
-      <form:SimpleForm id="jobDetailsForm">
-        <form:content>
-          <!-- Empty SimpleForm content -->
-        </form:content>
-      </form:SimpleForm>
-      <form:SimpleForm id="emergencyContactForm">
-        <form:content>
-          <!-- Empty SimpleForm content -->
-        </form:content>
-      </form:SimpleForm>
-      <Text id="textview_w4gpwijw" text="Document Upload Area (Implementation needed for file upload)"/>
-      <Button id="saveButton" text="Save"/>
-      <MessagePopover id="messageArea"/>
-    </content>
-  </Page>
+<mvc:View
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:layout="sap.ui.layout"
+	xmlns:form="sap.ui.layout.form"
+	controllerName="converted.employeeonboardingview.controller.EmployeeOnboardingView"
+	displayBlock="true"
+          xmlns:commons="sap.ui.commons"
+          xmlns:core="sap.ui.core">
+	<Page title="Employee Onboarding Form" enableScrolling="true">
+		<content>
+			<SearchField id="searchField" liveChange="onSearch" placeholder="Search Orders" width="100%"/>
+			<Button text="Go" press="onSearch"/>
+			<layout:VerticalLayout>
+				<Label text="Filter"/>
+				<Select id="filterSelect" items="{
+					path: '/statusValues',
+					templateShareable: true
+				}" selectedKey="All" change="onFilterChange">
+					<core:Item key="All" text="All"/>
+					<core:Item key="In Process" text="In Process"/>
+					<core:Item key="Shipped" text="Shipped"/>
+				</Select>
+			</layout:VerticalLayout>
+			<Table id="ordersTable" items="{orders>/}" noDataText="No orders found">
+				<columns>
+					<Column>
+						<header>
+							<Text text="Order ID"/>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Product"/>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Status"/>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Amount"/>
+						</header>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{orders>orderId}"/>
+							<Text text="{orders>product}"/>
+							<Text text="{orders>status}"/>
+							<Text text="{orders>amount}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<Button id="saveButton" text="Save" press="onSave"/>
+		</content>
+	</Page>
 </mvc:View>

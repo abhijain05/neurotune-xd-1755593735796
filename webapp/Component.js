@@ -1,26 +1,24 @@
 sap.ui.define([
-  "sap/ui/core/UIComponent",
-  "sap/ui/Device"
-], function (UIComponent, Device) {
-  "use strict";
+	"sap/ui/core/UIComponent",
+	"sap/ui/Device"
+], function(UIComponent, Device) {
+	"use strict";
 
-  return UIComponent.extend("converted.employeeonboardingview.Component", {
-    metadata: {
-      manifest: "json"
-    },
+	return UIComponent.extend("converted.employeeonboardingview.Component", {
+		metadata: {
+			manifest: "json"
+		},
 
-    /**
-     * The component is initialized by UI5 automatically during the startup of the app
-     */
-    init: function () {
-      // Call the base component's init function
-      UIComponent.prototype.init.apply(this, arguments);
-
-      // Set device model
-      this.setModel(new sap.ui.model.json.JSONModel(sap.ui.Device), "device");
-
-      // Initialize the router for navigation
-      this.getRouter().initialize();
-    }
-  });
+		init: function() {
+			UIComponent.prototype.init.apply(this, arguments);
+			this.setModel(new sap.ui.model.json.JSONModel({
+				statusValues: [
+					{key: "All", text: "All"},
+					{key: "In Process", text: "In Process"},
+					{key: "Shipped", text: "Shipped"}
+				]
+			}), "statusValues");
+			this.getRouter().initialize();
+		}
+	});
 });
