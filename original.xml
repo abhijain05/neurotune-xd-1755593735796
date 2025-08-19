@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebDynpro xmlns="http://www.sap.com/wd/webdynpro">
+  <View name="EmployeeOnboardingView">
+    <Title>Employee Onboarding Form</Title>
+    <FormContainer id="personalInfoForm">
+      <FormElement id="nameElement">
+        <Label text="Name" />
+        <InputField id="nameField" value="{/EmployeeOnboarding/Name}" />
+      </FormElement>
+      <FormElement id="emailElement">
+        <Label text="Email" />
+        <InputField id="emailField" value="{/EmployeeOnboarding/Email}" />
+      </FormElement>
+      <FormElement id="phoneElement">
+        <Label text="Phone" />
+        <InputField id="phoneField" value="{/EmployeeOnboarding/Phone}" />
+      </FormElement>
+      <FormElement id="addressElement">
+        <Label text="Address" />
+        <InputField id="addressField" value="{/EmployeeOnboarding/Address}" />
+      </FormElement>
+    </FormContainer>
+    <FormContainer id="jobDetailsForm">
+      <FormElement id="departmentElement">
+        <Label text="Department" />
+        <DropDownByKey id="departmentDropdown" key="{/EmployeeOnboarding/Department}" text="{/EmployeeOnboarding/DepartmentText}" />
+      </FormElement>
+      <FormElement id="positionElement">
+        <Label text="Position" />
+        <InputField id="positionField" value="{/EmployeeOnboarding/Position}" />
+      </FormElement>
+      <FormElement id="startDateElement">
+        <Label text="Start Date" />
+        <InputField id="startDateField" value="{/EmployeeOnboarding/StartDate}" />
+      </FormElement>
+      <FormElement id="salaryElement">
+        <Label text="Salary" />
+        <InputField id="salaryField" value="{/EmployeeOnboarding/Salary}" />
+      </FormElement>
+    </FormContainer>
+    <FormContainer id="emergencyContactForm">
+      <!--  Add Emergency Contact fields similarly to Personal Info -->
+      <FormElement id="emergencyNameElement">
+        <Label text="Emergency Contact Name"/>
+        <InputField id="emergencyNameField" value="{/EmployeeOnboarding/EmergencyContactName}"/>
+      </FormElement>
+      <FormElement id="emergencyPhoneElement">
+        <Label text="Emergency Contact Phone"/>
+        <InputField id="emergencyPhoneField" value="{/EmployeeOnboarding/EmergencyContactPhone}"/>
+      </FormElement>
+    </FormContainer>
+    <!-- Document Upload Area -  Requires more complex implementation beyond basic WebDynpro -->
+    <TextView text="Document Upload Area (Implementation needed for file upload)" />
+    <Button id="saveButton" text="Save" press="handleSave" />
+    <MessageArea id="messageArea" />
+  </View>
+  <Controller name="EmployeeOnboardingViewController">
+    <Method name="handleSave">
+      <!--  Implementation to save data to backend system -->
+      <![CDATA[
+        //Implementation to save data to backend system
+        wdContext.currentContextElement().save();
+        wdComponentAPI.getMessageManager().reportSuccess("Data saved successfully!");
+      ]]>
+    </Method>
+  </Controller>
+</WebDynpro>
